@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ms-moderation-dpl
+  name: ms-moderation-depl
 spec:
   replicas: 1
   selector:
