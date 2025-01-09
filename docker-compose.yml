@@ -1,9 +1,9 @@
 services:
   query:
     build:
-      context: ./query
+      context: ./query  # répertoire contenant le Dockerfile
     ports:
-      - "4002:4002"
+      - "4002:4002"      # port de ma machine locale:port du conteneur
 
   posts:
     build:
