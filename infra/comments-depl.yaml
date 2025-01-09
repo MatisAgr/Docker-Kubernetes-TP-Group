@@ -3,27 +3,27 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-comments-depl
+  name: ms-comments-depl # nom unique pour le déploiement
 
 spec:
-  replicas: 1
+  replicas: 1 # nombre de réplicas, augmentez pour une meilleure disponibilité
 
   selector:
     matchLabels:
-      app: comments
+      app: comments # label utilisé pour associer les pods au déploiement
 
   template:
     metadata:
       labels:
-        app: comments
+        app: comments # label pour identifier les pods
 
     spec:
       containers:
-        - name: comments-container
-          image: docker-kubernetes-tp-group-comments
-          imagePullPolicy: Never
+        - name: comments-container # nom du conteneur
+          image: docker-kubernetes-tp-group-comments # image utilisée par le conteneur
+          imagePullPolicy: Never # "Never" signifie que l'image est locale et ne sera pas téléchargée
           ports:
-            - containerPort: 4001
+            - containerPort: 4001 # port exposé par le conteneur
 
 ---
 
@@ -32,15 +32,15 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: ms-comments-srv
+  name: ms-comments-srv # nom unique pour le service
 
 spec:
   selector:
-    app: comments
+    app: comments # sélectionne les pods ayant ce label
 
   ports:
-    - protocol: TCP
-      port: 4001
-      targetPort: 4001
+    - protocol: TCP # type de protocole utilisé
+      port: 4001 # port exposé par le service
+      targetPort: 4001 # port mappé sur le conteneur
 
-  type: ClusterIP
+  type: ClusterIP # type de service utilisé pour la communication interne

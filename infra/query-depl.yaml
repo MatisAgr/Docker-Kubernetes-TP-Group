@@ -3,27 +3,27 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-query-depl
+  name: ms-query-depl # nom unique pour ce déploiement, utilisé pour identifier cette ressource
 
 spec:
-  replicas: 1
+  replicas: 1 # nombre de pods à exécuter. Augmentez pour gérer plus de trafic ou assurer la disponibilité
 
   selector:
     matchLabels:
-      app: query
+      app: query # sélectionne les pods portant ce label pour les associer au déploiement
 
   template:
     metadata:
       labels:
-        app: query
+        app: query # étiquette utilisée pour identifier les pods créés par ce déploiement
 
     spec:
       containers:
-        - name: query-container
-          image: docker-kubernetes-tp-group-query
-          imagePullPolicy: Never
+        - name: query-container # nom logique du conteneur pour le suivi
+          image: docker-kubernetes-tp-group-query # image Docker utilisée pour ce conteneur
+          imagePullPolicy: Never # indique que l'image est locale et ne sera pas téléchargée depuis un registre
           ports:
-            - containerPort: 4002
+            - containerPort: 4002 # expose le port interne utilisé par l'application dans le conteneur
 
 ---
 
@@ -32,15 +32,15 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: ms-query-srv
+  name: ms-query-srv # nom unique pour ce service, utilisé pour exposer l'application
 
 spec:
   selector:
-    app: query
+    app: query # sélectionne les pods portant ce label pour les associer à ce service
 
   ports:
-    - protocol: TCP
-      port: 4002
-      targetPort: 4002
+    - protocol: TCP # protocole utilisé (par défaut TCP pour les communications réseau)
+      port: 4002 # port exposé par le service pour les clients ou d'autres pods
+      targetPort: 4002 # port mappé sur le conteneur correspondant au port exposé par l'application
 
-  type: ClusterIP
+  type: ClusterIP # service de type interne pour permettre la communication entre les pods au sein du cluster

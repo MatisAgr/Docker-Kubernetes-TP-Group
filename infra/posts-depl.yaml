@@ -3,27 +3,27 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-posts-depl
+  name: ms-posts-depl # nom unique pour ce déploiement, utilisé pour identifier cette ressource
 
 spec:
-  replicas: 1
+  replicas: 1 # nombre d'instances (pods) à exécuter, augmentez pour plus de redondance
 
   selector:
     matchLabels:
-      app: posts
+      app: posts # sélectionne les pods ayant ce label pour ce déploiement
 
   template:
     metadata:
       labels:
-        app: posts
+        app: posts # étiquette pour identifier les pods appartenant à ce déploiement
 
     spec:
       containers:
-        - name: posts-container
-          image: docker-kubernetes-tp-group-posts
-          imagePullPolicy: Never
+        - name: posts-container # nom logique du conteneur, utilisé pour le suivi
+          image: docker-kubernetes-tp-group-posts # image Docker utilisée pour construire le conteneur
+          imagePullPolicy: Never # indique que l'image ne sera pas téléchargée (locale)
           ports:
-            - containerPort: 4000
+            - containerPort: 4000 # expose le port interne utilisé par le conteneur
 
 ---
 
@@ -32,16 +32,15 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: ms-posts-srv
+  name: ms-posts-srv # nom unique pour ce service, utilisé pour la communication réseau
 
 spec:
   selector:
-    app: posts
+    app: posts # sélectionne les pods avec ce label pour les associer à ce service
 
   ports:
-    - protocol: TCP
-      port: 4000
-      targetPort: 4000
+    - protocol: TCP # définit le protocole utilisé (généralement TCP pour HTTP)
+      port: 4000 # port du service accessible aux autres pods/clients
+      targetPort: 4000 # correspond au port exposé par le conteneur dans le pod
 
-  type: ClusterIP
-
+  type: ClusterIP # type par défaut pour les services internes dans Kubernetes
