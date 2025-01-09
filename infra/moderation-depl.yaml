@@ -1,35 +1,48 @@
+# Déploiement du service "moderation"
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ms-moderation-depl
+  # Nom du déploiement
+  name: ms-moderation-dpl
 spec:
+  # Nombre de réplicas de pods souhaités
   replicas: 1
   selector:
     matchLabels:
+      # Le label utilisé pour associer ce déploiement avec les pods
       app: moderation
   template:
     metadata:
+      # Les labels à appliquer aux pods créés par ce déploiement
       labels:
         app: moderation
     spec:
       containers:
         - name: moderation-container
+          # L'image Docker utilisée pour ce conteneur
           image: ms-moderation
+          # Stratégie de récupération de l'image Docker (ici, 'Never' car l'image est locale)
           imagePullPolicy: Never
           ports:
-            - containerPort: 4003
+            # Liste des ports ouverts sur ce conteneur
+            - containerPort: 4003 # Le conteneur écoute sur le port 4003
 
 ---
 
+# Service "moderation" pour exposer l'application
 apiVersion: v1
 kind: Service
 metadata:
+  # Nom du service
   name: ms-moderation-srv
 spec:
+  # Sélecteur de pods à associer à ce service (ici, il sélectionne les pods avec le label 'app: moderation')
   selector:
     app: moderation
   ports:
+    # Port d'écoute du service et le port du conteneur auquel il est mappé
     - protocol: TCP
-      port: 4003
-      targetPort: 4003
+      port: 4003      # Le service écoute sur le port 4003
+      targetPort: 4003 # Redirige vers le port 4003 du conteneur
+  # Type de service (ClusterIP signifie qu'il est accessible seulement à l'intérieur du cluster Kubernetes)
   type: ClusterIP
