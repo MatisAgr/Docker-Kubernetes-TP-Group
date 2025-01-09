@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: ms_query-dpl
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: query
+
+  template:
+
+    metadata:
+      labels:
+        app: query
+
+    spec:
+      containers:
+        - name: query-container
+          image: ms_query
+          ports:
+            - containerPort: 4002
