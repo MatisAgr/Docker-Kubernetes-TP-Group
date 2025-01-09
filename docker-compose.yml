@@ -1,0 +1,36 @@
+services:
+  query:
+    build:
+      context: ./query
+    ports:
+      - "4002:4002"
+
+  posts:
+    build:
+      context: ./posts
+    ports:
+      - "4000:4000"
+
+  moderation:
+    build:
+      context: ./moderation
+    ports:
+      - "4003:4003"
+
+  event-bus:
+    build:
+      context: ./event-bus
+    ports:
+      - "4005:4005"
+
+  comments:
+    build:
+      context: ./comments
+    ports:
+      - "4001:4001"
+
+  client:
+    build:
+      context: ./client
+    ports:
+      - "80:80"
