@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: query-container
-          image: microservices-query
+          image: docker-kubernetes-tp-group-query
           imagePullPolicy: Never
           ports:
             - containerPort: 4002

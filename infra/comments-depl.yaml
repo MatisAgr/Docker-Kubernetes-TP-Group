@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: comments-container
-          image: microservices-comments
+          image: docker-kubernetes-tp-group-comments
           imagePullPolicy: Never
           ports:
             - containerPort: 4001

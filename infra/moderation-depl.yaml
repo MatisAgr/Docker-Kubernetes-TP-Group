@@ -20,7 +20,7 @@ spec:
       containers:
         - name: moderation-container
           # L'image Docker utilisée pour ce conteneur
-          image: microservices-moderation
+          image: docker-kubernetes-tp-group-moderation
           # Stratégie de récupération de l'image Docker (ici, 'Never' car l'image est locale)
           imagePullPolicy: Never
           ports:

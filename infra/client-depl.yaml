@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: microservices-client
+          image: docker-kubernetes-tp-group-client
           imagePullPolicy: Never
           ports:
             - containerPort: 80

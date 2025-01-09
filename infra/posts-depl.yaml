@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: posts-container
-          image: ms-posts
+          image: docker-kubernetes-tp-group-posts
           imagePullPolicy: Never
           ports:
             - containerPort: 4000

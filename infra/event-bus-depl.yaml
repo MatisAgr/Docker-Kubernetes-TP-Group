@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: event-bus
-        image: microservices-event-bus
+        image: docker-kubernetes-tp-group-event-bus
         imagePullPolicy: Never
         ports:
         - containerPort: 4005 # port exposé par le conteneur
