@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   # Nom du déploiement
-  name: ms-moderation-dpl
+  name: ms-moderation-depl
 spec:
   # Nombre de réplicas de pods souhaités
   replicas: 1
