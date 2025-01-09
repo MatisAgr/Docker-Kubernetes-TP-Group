@@ -13,7 +13,6 @@ spec:
       app: query
 
   template:
-
     metadata:
       labels:
         app: query

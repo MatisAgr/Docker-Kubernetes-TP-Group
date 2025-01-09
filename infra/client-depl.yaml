@@ -1,18 +1,24 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
   name: ms-client-depl
   labels:
     app: client
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
       app: client
+
   template:
     metadata:
       labels:
         app: client
+        
     spec:
       containers:
         - name: client
@@ -23,14 +29,19 @@ spec:
 ---
 
 apiVersion: v1
+
 kind: Service
+
 metadata:
   name: ms-client-srv
+
 spec:
   selector:
     app: client
+
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 80
+
   type: ClusterIP
