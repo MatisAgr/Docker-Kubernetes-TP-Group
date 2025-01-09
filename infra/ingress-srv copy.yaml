@@ -14,27 +14,27 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: ms-posts-srv
+                name: posts-clusterip-srv
                 port:
                   number: 4000
           - path: /posts
             pathType: Prefix
             backend:
               service:
-                name: ms-query-srv
+                name: query-srv
                 port:
                   number: 4002
           - path: /posts/?(.*)/comments
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
-                name: ms-comments-srv
+                name: comments-srv
                 port:
                   number: 4001
           - path: /?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
-                name: ms-client-srv
+                name: client-srv
                 port:
                   number: 3000

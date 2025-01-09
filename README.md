@@ -61,12 +61,12 @@ Si vous modifiez ces noms, assurez-vous également de mettre à jour les référ
 
 Chaque service écoute sur un port spécifique. Assurez-vous que ces ports sont correctement configurés dans vos fichiers de déploiement Kubernetes et dans tout autre outil de gestion des conteneurs que vous pourriez utiliser. Voici les ports attendus pour chaque service :
 
-- **client-srv**: Écoute sur le port 3000.
-- **posts-clusterip-srv**: Écoute sur le port 4000.
-- **query-srv**: Écoute sur le port 4002.
-- **comments-srv**: Écoute sur le port 4001.
-- **moderation-srv**: Écoute sur le port 4003.
-- **event-bus-srv**: Écoute sur le port 4005.
+- **ms-client-srv**: Écoute sur le port 3000.
+- **ms-posts-srv**: Écoute sur le port 4000.
+- **ms-query-srv**: Écoute sur le port 4002.
+- **ms-comments-srv**: Écoute sur le port 4001.
+- **ms-moderation-srv**: Écoute sur le port 4003.
+- **ms-event-bus-srv**: Écoute sur le port 4005.
 
 Si vous modifiez ces ports, assurez-vous également de mettre à jour les références correspondantes dans le code de l'application et les fichiers de configuration Kubernetes.
 
