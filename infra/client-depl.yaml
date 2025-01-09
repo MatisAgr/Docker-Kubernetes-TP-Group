@@ -23,6 +23,7 @@ spec:
       containers:
         - name: client
           image: client:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 80
 
