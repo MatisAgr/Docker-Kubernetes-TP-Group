@@ -3,27 +3,26 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-event-bus-depl
-
+  name: ms-event-bus-depl # nom du déploiement
 spec:
-  replicas: 1
+  replicas: 1 # nombre de réplicas pour ce déploiement
 
   selector:
     matchLabels:
-      app: event-bus
+      app: event-bus # doit correspondre au label du template ci-dessous
 
   template:
     metadata:
       labels:
-        app: event-bus
+        app: event-bus # label utilisé pour sélectionner les pods
 
     spec:
       containers:
-      - name: event-bus
-        image: ms_event_bus:latest
-        imagePullPolicy: Never
+      - name: event-bus # nom du conteneur
+        image: ms_event_bus:latest # image utilisée pour le conteneur
+        imagePullPolicy: Never # l'image ne sera pas téléchargée
         ports:
-        - containerPort: 4005
+        - containerPort: 4005 # port exposé par le conteneur
 
 ---
 
@@ -32,15 +31,15 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: ms-event-bus-srv
+  name: ms-event-bus-srv # nom du service
 
 spec:
   selector:
-    app: event-bus
+    app: event-bus # sélectionne les pods ayant ce label
 
   ports:
-    - protocol: TCP
-      port: 4005
-      targetPort: 4005
+    - protocol: TCP # protocole utilisé
+      port: 4005 # port exposé par le service
+      targetPort: 4005 # port de ma machine locale
 
-  type: ClusterIP
+  type: ClusterIP # type de service par défaut pour une communication interne
