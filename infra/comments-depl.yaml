@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: ms-comments-dpl
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: comments
+
+  template:
+
+    metadata:
+      labels:
+        app: comments
+
+    spec:
+      containers:
+        - name: comments-container
+          image: ms-comments
+          ports:
+            - containerPort: 4001

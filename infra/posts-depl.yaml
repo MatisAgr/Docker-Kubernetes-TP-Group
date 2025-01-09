@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: ms-posts-dpl
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: posts
+
+  template:
+
+    metadata:
+      labels:
+        app: posts
+
+    spec:
+      containers:
+        - name: posts-container
+          image: ms-posts
+          ports:
+            - containerPort: 4000

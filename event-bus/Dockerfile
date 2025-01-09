@@ -1,12 +1,15 @@
-FROM node:18-alpine
+FROM node
 
 WORKDIR /app
 
-COPY package.json /
-RUN npm install
+COPY package*.json ./
+
+RUN npm i
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4005
 
 CMD ["node", "index.js"]
+
+# docker build -t ms-event-bus .
