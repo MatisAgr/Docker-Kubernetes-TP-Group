@@ -18,9 +18,9 @@ spec:
 
     spec:
       containers:
-      - name: event-bus # nom du conteneur
-        image: ms_event_bus:latest # image utilisée pour le conteneur
-        imagePullPolicy: Never # l'image ne sera pas téléchargée
+      - name: event-bus
+        image: microservices-event-bus
+        imagePullPolicy: Never
         ports:
         - containerPort: 4005 # port exposé par le conteneur
 

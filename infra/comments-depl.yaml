@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-comments-dpl
+  name: ms-comments-depl
 
 spec:
   replicas: 1
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: comments-container
-          image: ms-comments
+          image: microservices-comments
           imagePullPolicy: Never
           ports:
             - containerPort: 4001

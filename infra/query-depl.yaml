@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms-query-dpl
+  name: ms-query-depl
 
 spec:
   replicas: 1
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: query-container
-          image: ms-query
+          image: microservices-query
           imagePullPolicy: Never
           ports:
             - containerPort: 4002
