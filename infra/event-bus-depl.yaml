@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: event-bus-deployment
+  name: ms-event-bus-depl
 
 spec:
   replicas: 1
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: event-bus-srv
+  name: ms-event-bus-srv
 
 spec:
   selector:
