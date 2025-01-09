@@ -12,4 +12,4 @@ EXPOSE 4000
 
 CMD ["node", "index.js"]
 
-# docker build -t ms_posts .
+# docker build -t ms-posts .

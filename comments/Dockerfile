@@ -12,4 +12,4 @@ EXPOSE 4001
 
 CMD ["node", "index.js"]
 
-# docker build -t ms_comments .
+# docker build -t ms-comments .

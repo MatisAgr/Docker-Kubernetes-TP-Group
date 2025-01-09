@@ -1,10 +1,10 @@
-FROM node:18-alpine as build
+FROM node as build
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
-RUN npm install
+RUN npm i
 
 COPY . .
 
@@ -17,3 +17,5 @@ COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+
+# docker build -t ms-client .

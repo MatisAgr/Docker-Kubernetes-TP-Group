@@ -12,4 +12,4 @@ EXPOSE 4003
 
 CMD ["node", "index.js"]
 
-# docker build -t ms_moderation .
+# docker build -t ms-moderation .

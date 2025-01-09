@@ -12,4 +12,4 @@ EXPOSE 4005
 
 CMD ["node", "index.js"]
 
-# docker build -t ms_event_bus .
+# docker build -t ms-event-bus .

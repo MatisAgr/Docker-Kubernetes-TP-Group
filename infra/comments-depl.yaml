@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: ms_comments-dpl
+  name: ms-comments-dpl
 
 spec:
   replicas: 1
@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: comments-container
-          image: ms_comments
+          image: ms-comments
           ports:
             - containerPort: 4001

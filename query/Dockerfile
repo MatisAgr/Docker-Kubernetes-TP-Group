@@ -12,4 +12,4 @@ EXPOSE 4002
 
 CMD ["node", "index.js"]
 
-# docker build -t ms_query .
+# docker build -t ms-query .
