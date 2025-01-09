@@ -24,3 +24,23 @@ spec:
           image: ms-query
           ports:
             - containerPort: 4002
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: ms-query-srv
+
+spec:
+  selector:
+    app: query
+
+  ports:
+    - protocol: TCP
+      port: 4002
+      targetPort: 4002
+
+  type: ClusterIP
