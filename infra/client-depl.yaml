@@ -8,7 +8,7 @@ metadata:
     app: client
 
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -23,7 +23,6 @@ spec:
       containers:
         - name: client
           image: client:latest
-          imagePullPolicy: Never
           ports:
             - containerPort: 80
 
