@@ -22,6 +22,7 @@ spec:
       containers:
         - name: posts-container
           image: ms-posts
+          imagePullPolicy: Never
           ports:
             - containerPort: 4000
 

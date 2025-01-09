@@ -22,6 +22,7 @@ spec:
       containers:
         - name: comments-container
           image: ms-comments
+          imagePullPolicy: Never
           ports:
             - containerPort: 4001
 

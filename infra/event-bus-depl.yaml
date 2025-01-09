@@ -16,16 +16,14 @@ spec:
     metadata:
       labels:
         app: event-bus
-        
+
     spec:
       containers:
       - name: event-bus
         image: ms_event_bus:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 4005
-        env:
-        - name: NODE_ENV
-          value: "production"
 
 ---
 
