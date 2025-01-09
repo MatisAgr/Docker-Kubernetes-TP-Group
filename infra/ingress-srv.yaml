@@ -9,36 +9,32 @@ metadata:
 
 spec:
   rules:
-    
+    - host: localhost
       http:
         paths:
-
           - path: /posts/create
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ms-posts-srv
                 port:
                   number: 4000
-
           - path: /posts
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ms-query-srv
                 port:
                   number: 4002
-
-          - path: /posts/?(.*)/comments
-            pathType: Prefix
+          - path: /posts/(.*)/comments
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ms-comments-srv
                 port:
                   number: 4001
-                  
-          - path: /?(.*)
-            pathType: Prefix
+          - path: /(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ms-client-srv
