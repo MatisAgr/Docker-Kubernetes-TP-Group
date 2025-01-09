@@ -1,48 +1,48 @@
-apiVersion: apps/v1
+apiVersion: apps/v1  # version de l'API pour les objets Deployment
 
-kind: Deployment
+kind: Deployment  # type de l'objet Kubernetes
 
 metadata:
-  name: ms-client-depl
+  name: ms-client-depl  # nom du déploiement
   labels:
-    app: client
+    app: client  # label pour identifier l'application
 
 spec:
-  replicas: 1
+  replicas: 1  # nb de répliques du pod
 
   selector:
     matchLabels:
-      app: client
+      app: client  # sélecteur pour faire correspondre les pods avec le label app: client
 
   template:
     metadata:
       labels:
-        app: client
+        app: client  # labels appliqués au pod créé par ce template
 
     spec:
       containers:
-        - name: client
-          image: docker-kubernetes-tp-group-client
-          imagePullPolicy: Never
+        - name: client  # nom du conteneur
+          image: docker-kubernetes-tp-group-client  # image Docker utilisée pour le conteneur (par rapport au docker compose avec nom automatique en fonction du répertoire)
+          imagePullPolicy: Never  # eviter le pull automatique sur docker hub
           ports:
-            - containerPort: 80
+            - containerPort: 80  # port exposé par le conteneur (localhost)
 
----
+--- # délimiteur d'objet Kubernetes
 
-apiVersion: v1
+apiVersion: v1  # version de l'API pour les objets de type Service
 
-kind: Service
+kind: Service  # type de l'objet Kubernetes
 
 metadata:
-  name: ms-client-srv
+  name: ms-client-srv  # nom du service
 
 spec:
   selector:
-    app: client
+    app: client  # sélecteur pour faire correspondre les pods avec le label app: client
 
   ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 80
+    - protocol: TCP   # protocole utilisé par le service
+      port: 3000      # port exposé par le service
+      targetPort: 80  # port cible sur les pods
 
-  type: ClusterIP
+  type: ClusterIP  # type de service, accessible uniquement au sein du cluster
