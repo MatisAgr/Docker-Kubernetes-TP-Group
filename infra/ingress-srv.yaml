@@ -3,17 +3,40 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: ms-client-ingress-srv
+  name: ingress-srv
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 
 spec:
   rules:
-
-    - host: localhost
+    
       http:
         paths:
 
+          - path: /posts/create
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-posts-srv
+                port:
+                  number: 4000
+
+          - path: /posts
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-query-srv
+                port:
+                  number: 4002
+
+          - path: /posts/?(.*)/comments
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-comments-srv
+                port:
+                  number: 4001
+                  
           - path: /?(.*)
             pathType: Prefix
             backend:
