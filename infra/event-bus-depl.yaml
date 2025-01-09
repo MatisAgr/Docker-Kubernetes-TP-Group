@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: event-bus
-        image: ms_event_bus:latest
+        image: microservices-event-bus
         imagePullPolicy: Never
         ports:
         - containerPort: 4005

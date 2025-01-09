@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: client
+          image: microservices-client
           imagePullPolicy: Never
           ports:
             - containerPort: 80

@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: query-container
-          image: ms-query
+          image: microservices-query
           imagePullPolicy: Never
           ports:
             - containerPort: 4002
