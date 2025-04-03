@@ -1,4 +1,5 @@
 # Projet fil rouge
+Tisma : [![wakatime](https://wakatime.com/badge/user/a16f794f-b91d-4818-8dfc-d768ce605ece/project/59bc72bd-08ec-4546-82f7-6787e0097c41.svg)](https://wakatime.com/badge/user/a16f794f-b91d-4818-8dfc-d768ce605ece/project/59bc72bd-08ec-4546-82f7-6787e0097c41) + [![wakatime](https://wakatime.com/badge/user/a16f794f-b91d-4818-8dfc-d768ce605ece/project/49383522-39f2-4b66-b600-59671bf3575f.svg)](https://wakatime.com/badge/user/a16f794f-b91d-4818-8dfc-d768ce605ece/project/49383522-39f2-4b66-b600-59671bf3575f)
 
 ## Introduction
 
